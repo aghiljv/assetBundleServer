@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 1688789903
+CRC: 2310415609
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: titan
+      Name: cubemat
       Dependencies: {}
