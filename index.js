@@ -14,14 +14,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// PORT
+const PORT = process.env.PORT || 5000;
+
 // enable files upload
 app.use(
   fileUpload({
     createParentPath: true
   })
 );
-
-
 
 // upload multiple files
 app.post("/upload-assetbundles", async (req, res) => {
@@ -83,6 +84,6 @@ app.get("/download/:name", function (req, res) {
 });
 
 //assigning a port for the server
-http.listen(4000, function () {
-  console.log("Server is live on server " + 4000);
+http.listen(PORT, function () {
+  console.log(`Server Started at PORT ${PORT}`);
 });
