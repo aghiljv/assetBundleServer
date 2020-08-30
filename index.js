@@ -3,28 +3,25 @@ var app = express();
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const morgan = require("morgan");
 const _ = require("lodash");
+
+// //housing the index.html file for user interface
+// app.use(express.static(__dirname + "/public/"));
+
 var http = require("http").Server(app);
-
-//housing the index.html file for user interface
-app.use(express.static(__dirname + "/public/"));
-
-// enable files upload
-app.use(
-  fileUpload({
-    createParentPath: true,
-    limits: {
-      fileSize: 10 * 1024 * 1024 * 1024, //10MB max file(s) size
-    },
-  })
-);
-
 //add other middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(morgan('dev'));
+
+// enable files upload
+app.use(
+  fileUpload({
+    createParentPath: true
+  })
+);
+
+
 
 // upload multiple files
 app.post("/upload-assetbundles", async (req, res) => {
