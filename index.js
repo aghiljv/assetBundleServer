@@ -3,7 +3,7 @@ var app = express();
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const _ = require("lodash");
+
 
 const download =  require('./routes/download');
 const upload = require('./routes/upload');
